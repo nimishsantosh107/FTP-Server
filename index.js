@@ -31,10 +31,9 @@ else if ((opts.public) && (opts.address !== '127.0.0.1')){
 const ftpServer = new FtpSvr ( 'ftp://'+opts.address+':'+opts.port,{ anonymous: true } );
 
 //HANDLE LOGIN
-ftpServer.on ( 'login', ({connection, username, password}, resolve, reject ) => {
+ftpServer.on ( 'login', ({connection, username, password}, resolve, reject) => {
 	//RES / REJ
 });
-
 
 //LISTEN
 ftpServer.listen().then(() => {console.log( chalk.bold.green( `FTP SERVER UP ON ftp://${opts.address}:${opts.port}/` ));});
