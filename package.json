@@ -1,0 +1,29 @@
+{
+  "name": "ftp-server",
+  "version": "1.0.0",
+  "description": "FTP server CLI tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "ftp-server": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nimishsantosh107/FTP-Server.git"
+  },
+  "author": "Nimish Santosh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nimishsantosh107/FTP-Server/issues"
+  },
+  "homepage": "https://github.com/nimishsantosh107/FTP-Server#readme",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "co": "^4.6.0",
+    "co-prompt": "^1.0.0",
+    "commander": "^3.0.2",
+    "ftp-srv": "^4.2.0"
+  }
+}
