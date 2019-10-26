@@ -24,6 +24,7 @@
     "co": "^4.6.0",
     "co-prompt": "^1.0.0",
     "commander": "^3.0.2",
-    "ftp-srv": "^4.2.0"
+    "ftp-srv": "^4.2.0",
+    "simple-ftpd": "0.0.4"
   }
 }

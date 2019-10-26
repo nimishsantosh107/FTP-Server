@@ -4,7 +4,9 @@ const co = require('co');
 const prompt = require('co-prompt');
 const chalk = require('chalk');
 const FtpSvr = require ('ftp-srv');
-
+const ftpd = require('simple-ftpd');
+const fs = require('fs');
+const users = require('./users.js')
 
 //RECV CMD LINE INPUT
 program
@@ -27,12 +29,18 @@ else if ((opts.public) && (opts.address !== '127.0.0.1')){
 
 //PRINT OPTS
 
+
 //INIT SERVER
-const ftpServer = new FtpSvr ( 'ftp://'+opts.address+':'+opts.port,{ anonymous: true } );
+const PASV_URL = 'ftp://'+opts.address+':'+opts.port;
+const ftpServer = new FtpSvr ({ pasv_url: opts.address, pasv_min: 21} );
 
 //HANDLE LOGIN
 ftpServer.on ( 'login', ({connection, username, password}, resolve, reject) => {
-	//RES / REJ
+	if(username in users){
+		if(password === users[username]){
+			resolve( {root: './'} )
+		}else {reject('INVALID CREDENTIALS');}
+	}else {reject('NO USER');}
 });
 
 //LISTEN
